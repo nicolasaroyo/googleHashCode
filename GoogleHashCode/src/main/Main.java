@@ -2,6 +2,9 @@ package main;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Coucou Anna");
+		Problem p = new Problem();
+		p.initialize();
+		p.solve();
+		p.print();
 	}
 }

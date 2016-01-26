@@ -3,8 +3,8 @@ package main;
 public class Main {
 	public static void main(String[] args) {
 		Problem p = new Problem();
-		p.initialize();
+		p.initialize(); // TODO NICOLAS
 		p.solve();
-		p.print();
+		p.print(); // TODO ANNA
 	}
 }

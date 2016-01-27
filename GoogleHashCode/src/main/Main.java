@@ -6,5 +6,6 @@ public class Main {
 		p.initialize(); // TODO NICOLAS
 		p.solve();
 		p.print(); // TODO ANNA
+		System.out.println("Game Over");
 	}
 }

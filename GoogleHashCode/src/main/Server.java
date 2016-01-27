@@ -8,6 +8,14 @@ public class Server {
 	private int slot;
 	private int pool;
 	
+	public Server(int size, int capacity) {
+		this.size = size;
+		this.capacity = capacity;
+	}
+	
+	public Server() {
+	}
+
 	public int getSize() {
 		return size;
 	}

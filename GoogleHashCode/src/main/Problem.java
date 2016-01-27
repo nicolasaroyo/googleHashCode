@@ -9,18 +9,42 @@ public class Problem {
 	private static final String SPACE = " ";
 	private int nbRows;
 	private int nbSlotsPerRow;
-	private List<Coord> unavailableSlot;
+	private List<Coord> unavailableSlots;
 	private int nbPools;
 	private	List<Server> servers;
 	
 	public Problem(){
-		unavailableSlot = new ArrayList<Coord>();
+		unavailableSlots = new ArrayList<Coord>();
 		servers = new ArrayList<Server>();
 		
 	}
 	
+	private int getNthIntegerInLine(String line, int n) {
+		return Integer.parseInt(line.split(" ")[n-1]);
+	}
+	
 	public void initialize() {
-		// TODO Auto-generated method stub
+		List<String> lines = FileManager.read();
+		this.nbRows = this.getNthIntegerInLine(lines.get(0), 1);
+		this.nbSlotsPerRow = this.getNthIntegerInLine(lines.get(0), 2);
+		int nbUnavailableSlots = this.getNthIntegerInLine(lines.get(0), 3);
+		this.nbPools = this.getNthIntegerInLine(lines.get(0), 4);
+		int nbServers = this.getNthIntegerInLine(lines.get(0), 5);
+		lines.remove(0);
+		
+		for (int i = 0 ; i < nbUnavailableSlots ; i++) {
+			int row = this.getNthIntegerInLine(lines.get(0), 1);
+			int column = this.getNthIntegerInLine(lines.get(0), 2);
+			this.unavailableSlots.add(new Coord(row, column));
+			lines.remove(0);
+		}
+		
+		for (int i = 0 ; i < nbServers ; i++) {
+			int size = this.getNthIntegerInLine(lines.get(0), 1);
+			int capacity = this.getNthIntegerInLine(lines.get(0), 2);
+			this.servers.add(new Server(size, capacity));
+			lines.remove(0);
+		}
 	}
 	
 	public void solve() {
@@ -45,10 +69,9 @@ public class Problem {
 	}
 	
 	public void print() {
-		FileManager fileManager = new FileManager();
 		List<String> textOutput = new ArrayList<String>();
 		for (Server server: servers){
-			//TODO find the condition for an unalocated server 
+			//TODO find the condition for an unallocated server 
 			if (server.getSlot() == -1){
 				textOutput.add(UNALLOCATED_SERVER);
 			} else {
@@ -58,6 +81,7 @@ public class Problem {
 				textOutput.add(line.toString());				
 			}			
 		}
-		fileManager.write(textOutput);
+		FileManager.write(textOutput);
 	}
 }
+

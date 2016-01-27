@@ -1,18 +1,24 @@
 package main;
 
 public class Coord {
-	private int x;
-	private int y;
-	public int getX() {
-		return x;
+	private int row;
+	private int column;
+	
+	public Coord(int row, int column) {
+		this.row = row;
+		this.column = column;
 	}
-	public void setX(int x) {
-		this.x = x;
+	
+	public int getRow() {
+		return row;
 	}
-	public int getY() {
-		return y;
+	public void setRow(int row) {
+		this.row = row;
 	}
-	public void setY(int y) {
-		this.y = y;
+	public int getColumn() {
+		return column;
+	}
+	public void setColumn(int column) {
+		this.column = column;
 	}
 }

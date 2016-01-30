@@ -49,23 +49,27 @@ public class Problem {
 	
 	public void solve() {
 		// TODO Auto-generated method stub
-		createDummyServers();
+		solveExample();
 		
 	}
 	
 	//FIXME remove later after testing of output
-	private void createDummyServers(){
-		Server server1 = new Server();
-		server1.setPool(1);
-		server1.setRow(100);
-		server1.setSlot(23);
-		this.servers.add(server1);
-		Server server2 = new Server();
-		server2.setPool(1);
-		server2.setRow(100);
-		server2.setSlot(-1);
-		this.servers.add(server2);
-		
+	private void solveExample(){
+		this.servers.get(0).setRow(0);
+		this.servers.get(0).setSlot(1);
+		this.servers.get(0).setPool(0);
+		this.servers.get(1).setRow(1);
+		this.servers.get(1).setSlot(0);
+		this.servers.get(1).setPool(1);
+		this.servers.get(2).setRow(1);
+		this.servers.get(2).setSlot(3);
+		this.servers.get(2).setPool(0);
+		this.servers.get(3).setRow(0);
+		this.servers.get(3).setSlot(4);
+		this.servers.get(3).setPool(1);
+		this.servers.get(4).setRow(-1);
+		this.servers.get(4).setSlot(-1);
+		this.servers.get(4).setPool(-1);
 	}
 	
 	public void print() {
@@ -82,6 +86,33 @@ public class Problem {
 			}			
 		}
 		FileManager.write(textOutput);
+		System.err.println(this.getScore());
+	}
+	
+	private int getScore() {
+		List<Integer> guaranteedCapacity = new ArrayList<Integer>();
+		for (int i = 0 ; i < this.nbPools ; i++) {
+			List<Integer> capacityPerRow = new ArrayList<Integer>();
+			for (int j = 0 ; j < this.nbRows ; j++) {
+				capacityPerRow.add(0);
+			}
+			for (Server s : this.servers) {
+				if (s.getPool() == i) {
+					capacityPerRow.set(s.getRow(), capacityPerRow.get(s.getRow()) + s.getCapacity());
+				}
+			}
+			int max = 0, sum = 0;
+			for (Integer n : capacityPerRow) {
+				max = (max > n) ? max : n;
+				sum += n;
+			}
+			guaranteedCapacity.add(sum - max);
+		}
+		int min = Integer.MAX_VALUE;
+		for (Integer n : guaranteedCapacity) {
+			min = (min < n) ? min : n;
+		}
+		return min;
 	}
 }
 

@@ -24,7 +24,7 @@ public class Problem {
 	}
 	
 	public void initialize() {
-		List<String> lines = FileManager.read();
+		List<String> lines = FileManager.read("input.txt");
 		this.nbRows = this.getNthIntegerInLine(lines.get(0), 1);
 		this.nbSlotsPerRow = this.getNthIntegerInLine(lines.get(0), 2);
 		int nbUnavailableSlots = this.getNthIntegerInLine(lines.get(0), 3);
@@ -85,7 +85,7 @@ public class Problem {
 				textOutput.add(line.toString());				
 			}			
 		}
-		FileManager.write(textOutput);
+		FileManager.write(textOutput, "output.txt", true);
 		System.err.println(this.getScore());
 	}
 	

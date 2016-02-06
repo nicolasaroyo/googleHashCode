@@ -1,7 +1,7 @@
-package main;
+package dataCenter;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		Problem p = new Problem();
 		p.initialize(); // TODO NICOLAS
 		p.solve();

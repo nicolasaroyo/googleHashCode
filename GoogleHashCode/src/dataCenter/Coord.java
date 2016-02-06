@@ -1,4 +1,4 @@
-package main;
+package dataCenter;
 
 public class Coord {
 	private int row;

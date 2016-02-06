@@ -1,4 +1,4 @@
-package main;
+package dataCenter;
 
 public class Server {
 	private int size;

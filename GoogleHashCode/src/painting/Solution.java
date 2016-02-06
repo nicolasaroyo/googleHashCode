@@ -1,5 +1,6 @@
 package painting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Solution {
@@ -7,7 +8,7 @@ public abstract class Solution {
 	private List<String> grid;
 	
 	public Solution(List<String> grid) {
-		this.grid = grid;
+		this.grid = new ArrayList<String>(grid);
 		this.grid.remove(0);
 	}
 	

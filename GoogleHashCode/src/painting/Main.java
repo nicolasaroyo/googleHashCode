@@ -13,11 +13,15 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		List<String> grid = FileManager.read("input3.in");
+		List<String> grid = FileManager.read("input.in");
 		
-		Solution solution = new SolutionCellByCell(grid);
-		writeSolution(solution.solve());
+		Solution solution1 = new SolutionLineByLine(grid);
+		List<String> ans1 = solution1.solve();
+		Solution solution2 = new SolutionColumnByColumn(grid);
+		List<String> ans2 = solution2.solve();
 		
-		System.out.println("Done");
+		writeSolution(ans1.size() < ans2.size() ? ans1 : ans2);
+		
+		System.out.println((ans1.size() < ans2.size() ? "Ligne par ligne" : "Colonne par colonne") + " : " + ans1.size() + " / " + ans2.size());
 	}
 }

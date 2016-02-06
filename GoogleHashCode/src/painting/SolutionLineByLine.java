@@ -25,6 +25,9 @@ public class SolutionLineByLine extends Solution {
 				}
 				curColumn++;
 			}
+			if (startColumn != -1) {
+				ans.add("PAINT_LINE " + row + " " + startColumn + " " + row + " " + (curColumn-1));
+			}
 			row++;
 		}
 		return ans;

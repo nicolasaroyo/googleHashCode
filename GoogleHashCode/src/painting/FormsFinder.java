@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import dataCenter.Coord;
-
 public class FormsFinder {
 	
 	private List<String> grid;

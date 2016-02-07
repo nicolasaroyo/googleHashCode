@@ -1,4 +1,4 @@
-package dataCenter;
+package painting;
 
 public class Coord {
 	private int row;

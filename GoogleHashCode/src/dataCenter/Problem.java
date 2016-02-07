@@ -85,7 +85,7 @@ public class Problem {
 				textOutput.add(line.toString());				
 			}			
 		}
-		FileManager.write(textOutput, "output.txt", true);
+		FileManager.write(textOutput, "output.txt");
 		System.err.println(this.getScore());
 	}
 	

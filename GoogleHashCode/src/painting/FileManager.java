@@ -38,4 +38,8 @@ public class FileManager {
 			e.printStackTrace();
 		}
 	} 
+	
+	public static void write(List<String> text, String outputName){
+		write(text, outputName, true);
+	} 
 }

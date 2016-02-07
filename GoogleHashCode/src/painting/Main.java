@@ -10,7 +10,7 @@ public class Main {
 	private static void writeSolution(List<String> solution) {
 		List<String> size = new ArrayList<String>();
 		size.add(Integer.toString(solution.size()));
-		FileManager.write(size, "output.ou", true);
+		FileManager.write(size, "output.ou");
 		FileManager.write(solution, "output.ou", false);
 	}
 	

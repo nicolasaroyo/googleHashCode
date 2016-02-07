@@ -3,6 +3,9 @@ package painting;
 import java.util.ArrayList;
 import java.util.List;
 
+import utils.Coord;
+import utils.FileManager;
+
 public class Main {
 	
 	private static void writeSolution(List<String> solution) {

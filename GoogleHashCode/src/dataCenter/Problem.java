@@ -4,6 +4,9 @@ package dataCenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import utils.Coord;
+import utils.FileManager;
+
 public class Problem {
 	private static final String UNALLOCATED_SERVER = "x";
 	private static final String SPACE = " ";

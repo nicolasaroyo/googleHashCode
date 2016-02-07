@@ -3,6 +3,8 @@ package painting;
 import java.util.ArrayList;
 import java.util.List;
 
+import utils.Coord;
+
 
 public class FormsFinder {
 	

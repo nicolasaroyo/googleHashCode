@@ -151,21 +151,4 @@ public class Problem {
 	public void setDrones(List<Drone> drones) {
 		this.drones = drones;
 	}
-	
-	/**
-	 * @param output The output we are going to write
-	 * @return the score of the output / -1 if the output is not correct
-	 */
-	
-	public int score(List<String> output) {
-		int nbDronesCommands = Integer.parseInt(output.get(0));
-		output.remove(0);
-		if (nbDronesCommands != output.size()) {
-			return -1;
-		}
-		
-		Problem problem = new Problem(this);
-		
-		return -1;
-	}
 }

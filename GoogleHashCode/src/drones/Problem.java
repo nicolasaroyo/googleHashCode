@@ -56,7 +56,11 @@ public class Problem {
 		}
 		
 		for(int i=0; i< this.nbDrones; i++){
-			drones.add(new Drone(i, this.maxLoadDrone, new Coord(this.warehouses.get(0).getLocation())));
+			Drone toAdd = new Drone(i, this.maxLoadDrone, new Coord(this.warehouses.get(0).getLocation()));
+			for (int j = 0 ; j < this.nbProducts ; j++) {
+				toAdd.getProducts().add(0);
+			}
+			this.drones.add(toAdd);
 		}
 		
 		
@@ -95,8 +99,8 @@ public class Problem {
 		for (Order o : problem.orders) {
 			this.orders.add(new Order(o));
 		}
-		for(int i=0; i< this.nbDrones; i++){
-			drones.add(new Drone(i, this.maxLoadDrone, new Coord(this.warehouses.get(0).getLocation())));
+		for(Drone d : problem.drones){
+			this.drones.add(new Drone(d));
 		}
 	}
 

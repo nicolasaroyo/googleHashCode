@@ -1,5 +1,8 @@
 package drones;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import utils.Coord;
 
 public class Drone {
@@ -7,10 +10,9 @@ public class Drone {
 	private int id;
 	private int load;
 	private Coord position;
+	private List<Integer> products = new ArrayList<Integer>();
 	
 	public Drone(){
-		
-		
 	}
 	
 	public Drone(int id, int load, Coord position) {
@@ -18,6 +20,15 @@ public class Drone {
 		this.load = load;
 		this.position = position;
 	}
+	public Drone(Drone d) {
+		this.id = d.id;
+		this.load = d.load;
+		this.position = new Coord(d.position);
+		for (Integer i : d.products) {
+			this.products.add(i);
+		}
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -36,7 +47,8 @@ public class Drone {
 	public void setPosition(Coord position) {
 		this.position = position;
 	}
-	
-	
 
+	public List<Integer> getProducts() {
+		return products;
+	}
 }

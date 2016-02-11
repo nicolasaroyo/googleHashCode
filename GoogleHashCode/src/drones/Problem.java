@@ -95,9 +95,9 @@ public class Problem {
 		for (Order o : problem.orders) {
 			this.orders.add(new Order(o));
 		}
-	}
-
-	public Problem() {
+		for(int i=0; i< this.nbDrones; i++){
+			drones.add(new Drone(i, this.maxLoadDrone, new Coord(this.warehouses.get(0).getLocation())));
+		}
 	}
 
 	public int getNbRows() {

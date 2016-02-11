@@ -11,11 +11,16 @@ public class Order {
 	private int nbProducts;
 	private List<Integer> products = new ArrayList<Integer>();
 
-	public Order(String coords, String nbProducts, String listProducts) {
+	public Order(String coords, String nbProductsWanted, String listProducts, int nbProducts) {
 		this.location = new Coord(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
-		this.nbProducts = Integer.parseInt(nbProducts);
+		this.nbProducts = Integer.parseInt(nbProductsWanted);
+		for (int i = 0 ; i < nbProducts ; i++) {
+			this.products.add(0);
+		}
+		
 		for (String s : listProducts.split(" ")) {
-			products.add(Integer.parseInt(s));
+			int productWanted = Integer.parseInt(s);
+			this.products.set(productWanted, 1+this.products.get(productWanted));
 		}
 	}
 

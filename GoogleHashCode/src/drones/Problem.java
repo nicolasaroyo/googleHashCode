@@ -65,7 +65,7 @@ public class Problem {
 		file.remove(0);
 		
 		for (int i = 0 ; i < this.nbCustomerOrders ; i++) {
-			this.orders.add(new Order(file.get(0), file.get(1), file.get(2)));
+			this.orders.add(new Order(file.get(0), file.get(1), file.get(2), this.nbProducts));
 			file.remove(0); file.remove(0); file.remove(0);
 		}
 		

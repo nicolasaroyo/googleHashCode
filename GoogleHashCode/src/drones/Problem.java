@@ -72,6 +72,34 @@ public class Problem {
 		
 	}
 
+	/**
+	 * Clones the problem
+	 * @param problem
+	 */
+	
+	public Problem(Problem problem) {
+		this.nbRows = problem.nbRows;
+		this.nbColumns = problem.nbColumns;
+		this.nbDrones = problem.nbDrones;
+		this.nbMaxTurns = problem.nbMaxTurns;
+		this.maxLoadDrone = problem.maxLoadDrone;
+		this.nbProducts = problem.nbProducts;
+		for (Integer i : problem.productWeights) {
+			this.productWeights.add(i);
+		}
+		this.nbWarehouses = problem.nbWarehouses;
+		for (Warehouse w : problem.warehouses) {
+			this.warehouses.add(new Warehouse(w));
+		}
+		this.nbCustomerOrders = problem.nbCustomerOrders;
+		for (Order o : problem.orders) {
+			this.orders.add(new Order(o));
+		}
+		for(int i=0; i< this.nbDrones; i++){
+			drones.add(new Drone(i, this.maxLoadDrone, new Coord(this.warehouses.get(0).getLocation())));
+		}
+	}
+
 	public int getNbRows() {
 		return nbRows;
 	}

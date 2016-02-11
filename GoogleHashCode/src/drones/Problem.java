@@ -51,7 +51,7 @@ public class Problem {
 		file.remove(0);
 		
 		for (int i = 0 ; i < this.nbWarehouses ; i++) {
-			this.warehouses.add(new Warehouse(file.get(0), file.get(1)));
+			this.warehouses.add(new Warehouse(file.get(0), file.get(1), i));
 			file.remove(0); file.remove(0);
 		}
 		
@@ -69,7 +69,7 @@ public class Problem {
 		file.remove(0);
 		
 		for (int i = 0 ; i < this.nbCustomerOrders ; i++) {
-			this.orders.add(new Order(file.get(0), file.get(1), file.get(2), this.nbProducts));
+			this.orders.add(new Order(file.get(0), file.get(1), file.get(2), this.nbProducts, i));
 			file.remove(0); file.remove(0); file.remove(0);
 		}
 		

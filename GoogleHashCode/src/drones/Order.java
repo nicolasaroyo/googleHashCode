@@ -10,8 +10,9 @@ public class Order {
 	private Coord location;
 	private int nbProducts;
 	private List<Integer> products = new ArrayList<Integer>();
+	private int id;
 
-	public Order(String coords, String nbProductsWanted, String listProducts, int nbProducts) {
+	public Order(String coords, String nbProductsWanted, String listProducts, int nbProducts, int id) {
 		this.location = new Coord(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
 		this.nbProducts = Integer.parseInt(nbProductsWanted);
 		for (int i = 0 ; i < nbProducts ; i++) {
@@ -22,11 +23,13 @@ public class Order {
 			int productWanted = Integer.parseInt(s);
 			this.products.set(productWanted, 1+this.products.get(productWanted));
 		}
+		this.id = id;
 	}
 
 	public Order(Order o) {
 		this.location = new Coord(o.location);
 		this.nbProducts = o.nbProducts;
+		this.id = o.id;
 		for (Integer i : o.products) {
 			this.products.add(i);
 		}
@@ -50,6 +53,14 @@ public class Order {
 			
 		}
 		return true;
-		
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 }

@@ -9,9 +9,11 @@ public class Warehouse {
 	
 	private Coord location;
 	private List<Integer> productQuantity = new ArrayList<Integer>();
+	private int id;
 
-	public Warehouse(String coords, String products) {
+	public Warehouse(String coords, String products, int id) {
 		this.location = new Coord(Integer.parseInt(coords.split(" ")[0]), Integer.parseInt(coords.split(" ")[1]));
+		this.id = id;
 		for (String s : products.split(" ")) {
 			this.productQuantity.add(Integer.parseInt(s));
 		}
@@ -19,6 +21,7 @@ public class Warehouse {
 
 	public Warehouse(Warehouse w) {
 		this.location = new Coord(w.location);
+		this.id = w.id;
 		for (Integer i : w.productQuantity) {
 			this.productQuantity.add(i);
 		}
@@ -35,4 +38,14 @@ public class Warehouse {
 	public Coord getLocation() {
 		return location;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
 }

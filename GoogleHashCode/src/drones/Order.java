@@ -19,6 +19,14 @@ public class Order {
 		}
 	}
 
+	public Order(Order o) {
+		this.location = new Coord(o.location);
+		this.nbProducts = o.nbProducts;
+		for (Integer i : o.products) {
+			this.products.add(i);
+		}
+	}
+
 	public Coord getLocation() {
 		return location;
 	}

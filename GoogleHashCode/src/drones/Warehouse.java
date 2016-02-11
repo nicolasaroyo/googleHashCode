@@ -17,6 +17,13 @@ public class Warehouse {
 		}
 	}
 
+	public Warehouse(Warehouse w) {
+		this.location = new Coord(w.location);
+		for (Integer i : w.productQuantity) {
+			this.productQuantity.add(i);
+		}
+	}
+
 	public List<Integer> getProductQuantity() {
 		return productQuantity;
 	}

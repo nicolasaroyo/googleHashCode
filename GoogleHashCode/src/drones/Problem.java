@@ -3,15 +3,17 @@ package drones;
 import java.util.ArrayList;
 import java.util.List;
 
+import utils.Coord;
 import utils.FileManager;
 
 public class Problem {
 	private int nbRows;
 	private int nbColumns;
-	private int nbDrones;
-	private int nbMaxTurns;
-	private int maxLoadDrone;
 	
+	private int nbMaxTurns;
+	private int nbDrones;
+	private int maxLoadDrone;
+	private List<Drone> drones = new ArrayList<Drone>();
 	private int nbProducts;
 	private List<Integer> productWeights = new ArrayList<Integer>();
 	
@@ -31,6 +33,7 @@ public class Problem {
 		this.nbMaxTurns = Integer.parseInt(params[3]);
 		this.maxLoadDrone = Integer.parseInt(params[4]);
 		
+	
 		file.remove(0);
 		
 		this.nbProducts = Integer.parseInt(file.get(0));
@@ -51,6 +54,11 @@ public class Problem {
 			this.warehouses.add(new Warehouse(file.get(0), file.get(1)));
 			file.remove(0); file.remove(0);
 		}
+		
+		for(int i=0; i< this.nbDrones; i++){
+			drones.add(new Drone(i, this.maxLoadDrone, new Coord(this.warehouses.get(0).getLocation())));
+		}
+		
 		
 		this.nbCustomerOrders = Integer.parseInt(file.get(0));
 		
@@ -106,5 +114,13 @@ public class Problem {
 
 	public List<Order> getOrders() {
 		return orders;
+	}
+
+	public List<Drone> getDrones() {
+		return drones;
+	}
+
+	public void setDrones(List<Drone> drones) {
+		this.drones = drones;
 	}
 }

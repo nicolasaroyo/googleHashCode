@@ -38,4 +38,13 @@ public class Order {
 	public List<Integer> getProducts() {
 		return products;
 	}
+	
+	public boolean isCompleted(){
+		for(Integer product : this.products){
+			if (product > 0) return false;
+			
+		}
+		return true;
+		
+	}
 }

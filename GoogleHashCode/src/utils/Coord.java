@@ -30,4 +30,11 @@ public class Coord {
 	    Coord otherMyClass = (Coord) other;
 	    return (this.row == otherMyClass.getRow() && this.column == otherMyClass.getColumn());
 	}
+	
+	public static int distance(Coord a, Coord b){
+		int absRow = Math.abs(a.getRow() - b.getRow()); 
+		int absColumn = Math.abs(a.getColumn() - b.getColumn());
+		int sqr = absRow* absRow + absColumn* absColumn; 
+		return (int)Math.ceil(Math.sqrt((double)sqr));		
+	}
 }

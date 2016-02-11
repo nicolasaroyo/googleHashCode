@@ -60,5 +60,51 @@ public class Problem {
 			this.orders.add(new Order(file.get(0), file.get(1), file.get(2)));
 			file.remove(0); file.remove(0); file.remove(0);
 		}
+		
+		
+	}
+
+	public int getNbRows() {
+		return nbRows;
+	}
+
+	public int getNbColumns() {
+		return nbColumns;
+	}
+
+	public int getNbDrones() {
+		return nbDrones;
+	}
+
+	public int getNbMaxTurns() {
+		return nbMaxTurns;
+	}
+
+	public int getMaxLoadDrone() {
+		return maxLoadDrone;
+	}
+
+	public int getNbProducts() {
+		return nbProducts;
+	}
+
+	public List<Integer> getProductWeights() {
+		return productWeights;
+	}
+
+	public int getNbWarehouses() {
+		return nbWarehouses;
+	}
+
+	public List<Warehouse> getWarehouses() {
+		return warehouses;
+	}
+
+	public int getNbCustomerOrders() {
+		return nbCustomerOrders;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
 	}
 }

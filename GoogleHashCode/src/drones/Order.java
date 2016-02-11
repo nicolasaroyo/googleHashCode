@@ -19,4 +19,15 @@ public class Order {
 		}
 	}
 
+	public Coord getLocation() {
+		return location;
+	}
+
+	public int getNbProducts() {
+		return nbProducts;
+	}
+
+	public List<Integer> getProducts() {
+		return products;
+	}
 }

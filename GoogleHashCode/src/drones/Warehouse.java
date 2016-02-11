@@ -17,4 +17,15 @@ public class Warehouse {
 		}
 	}
 
+	public List<Integer> getProductQuantity() {
+		return productQuantity;
+	}
+
+	public void setProductQuantity(List<Integer> productQuantity) {
+		this.productQuantity = productQuantity;
+	}
+
+	public Coord getLocation() {
+		return location;
+	}
 }

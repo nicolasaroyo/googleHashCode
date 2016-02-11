@@ -72,6 +72,34 @@ public class Problem {
 		
 	}
 
+	/**
+	 * Clones the problem
+	 * @param problem
+	 */
+	
+	public Problem(Problem problem) {
+		this.nbRows = problem.nbRows;
+		this.nbColumns = problem.nbColumns;
+		this.nbDrones = problem.nbDrones;
+		this.nbMaxTurns = problem.nbMaxTurns;
+		this.maxLoadDrone = problem.maxLoadDrone;
+		this.nbProducts = problem.nbProducts;
+		for (Integer i : problem.productWeights) {
+			this.productWeights.add(i);
+		}
+		this.nbWarehouses = problem.nbWarehouses;
+		for (Warehouse w : problem.warehouses) {
+			this.warehouses.add(new Warehouse(w));
+		}
+		this.nbCustomerOrders = problem.nbCustomerOrders;
+		for (Order o : problem.orders) {
+			this.orders.add(new Order(o));
+		}
+	}
+
+	public Problem() {
+	}
+
 	public int getNbRows() {
 		return nbRows;
 	}
@@ -122,5 +150,22 @@ public class Problem {
 
 	public void setDrones(List<Drone> drones) {
 		this.drones = drones;
+	}
+	
+	/**
+	 * @param output The output we are going to write
+	 * @return the score of the output / -1 if the output is not correct
+	 */
+	
+	public int score(List<String> output) {
+		int nbDronesCommands = Integer.parseInt(output.get(0));
+		output.remove(0);
+		if (nbDronesCommands != output.size()) {
+			return -1;
+		}
+		
+		Problem problem = new Problem(this);
+		
+		return -1;
 	}
 }
